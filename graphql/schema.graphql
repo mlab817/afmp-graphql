@@ -1,0 +1,170 @@
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+"A datetime and timezone string in ISO 8601 format `Y-m-dTH:i:sO`, e.g. `2020-04-20T13:53:12+02:00`."
+scalar DateTimeTz @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTimeTz")
+
+type Query {
+    users: [User!]! @paginate(defaultCount: 10)
+    user(id: ID @eq): User @find
+
+    spatial_coverages: [SpatialCoverage] @all
+    spatial_coverage(id: ID! @eq): SpatialCoverage @find
+
+    regions: [Region] @all
+		region(id: ID! @eq): Region @find
+
+		provinces: [Province] @all
+		province(id: ID! @eq): Province @find
+
+		interventions: [Intervention] @paginate(type:"paginator")
+		intervention(id: ID! @eq): Intervention @find
+
+		commodities: [Commodity] @paginate(type:"paginator")
+		commodity(id: ID! @eq): Commodity @find
+
+		commodity_groups: [CommodityGroup] @paginate(type:"paginator")
+		commodity_group(id: ID! @eq): CommodityGroup @find
+
+		value_chain_segments: [ValueChainSegment] @paginate(type:"paginator")
+		value_chain_segment(id: ID! @eq): ValueChainSegment @find
+
+		programs: [Program] @all
+		program(id: ID! @eq): Program @find
+
+		subprograms: [Subprogram] @all
+		subprogram(id: ID! @eq): Subprogram @find
+
+		operating_units: [OperatingUnit] @paginate(type:"paginator")
+		operating_unit(id: ID! @eq): OperatingUnit @find
+
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Commodity {
+	id: ID
+	name: String
+	interventions: [Intervention] @hasMany
+	total_investment: Float
+	count: Int
+}
+
+type CommodityGroup {
+	id: ID
+	name: String
+	interventions: [Intervention] @hasMany
+	total_investment: Float
+	count: Int
+}
+
+type Region {
+	id: ID
+	name: String
+	interventions: [Intervention] @hasMany
+	total_investment: Float
+	count: Int
+}
+
+type OperatingUnit {
+	id: ID
+	name: String
+	interventions: [Intervention] @hasMany
+	total_investment: Float
+	count: Int
+}
+
+type Province {
+	id: ID
+	name: String
+	interventions: [Intervention] @hasMany
+	total_investment: Float
+	count: Int
+}
+
+type SpatialCoverage {
+	id: ID
+	name: String
+	interventions: [Intervention] @hasMany
+	total_investment: Float
+	count: Int
+}
+
+type ValueChainSegment {
+	id: ID
+	name: String
+	interventions: [Intervention] @hasMany
+	total_investment: Float
+	count: Int
+}
+
+type Program {
+	id: ID
+	name: String
+	interventions: [Intervention] @hasMany
+	total_investment: Float
+	count: Int
+}
+
+type Subprogram {
+	id: ID
+	name: String
+	interventions: [Intervention] @hasMany
+	total_investment: Float
+	count: Int
+}
+
+type Unit {
+	id: ID
+	name: String
+	interventions: [Intervention] @hasMany
+	total_investment: Float
+	count: Int
+}
+
+type Intervention {
+	id: ID
+	operating_unit: OperatingUnit @belongsTo
+	spatial_coverage: SpatialCoverage @belongsTo
+	region: Region @belongsTo
+	province: Province @belongsTo
+	commodity_group: CommodityGroup @belongsTo
+	commodity: Commodity @belongsTo
+	program: Program @belongsTo
+	subprogram: Subprogram @belongsTo
+	intervention_type: String
+	intervention: String
+	intervention_others: String
+	intervention_details: String
+	multi_year: Boolean
+	unit: Unit @belongsTo
+	target_1: Float
+	target_2: Float
+	target_3: Float
+	target_4: Float
+	target_5: Float
+	target_6: Float
+	investment_1: Float
+	investment_2: Float
+	investment_3: Float
+	investment_4: Float
+	investment_5: Float
+	investment_6: Float
+	investment_total: Float
+	municipalities_2: Int
+	municipalities_3: Int
+	municipalities_4: Int
+	municipalities_5: Int
+	municipalities_6: Int
+	fund_source: String
+	remarks: String
+}
