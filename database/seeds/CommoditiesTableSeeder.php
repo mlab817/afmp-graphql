@@ -1,6 +1,7 @@
 <?php
 
 use Flynsarmy\CsvSeeder\CsvSeeder;
+use Illuminate\Console\Command;
 use Illuminate\Database\Seeder;
 
 class CommoditiesTableSeeder extends CsvSeeder
@@ -24,6 +25,8 @@ class CommoditiesTableSeeder extends CsvSeeder
 
         // Uncomment the below to wipe the table clean before populating
         DB::table($this->table)->truncate();
+
+        $this->command->info('seeding commodities...');
 
         parent::run();
     }
