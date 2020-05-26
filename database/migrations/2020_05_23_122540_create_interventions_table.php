@@ -62,7 +62,6 @@ class CreateInterventionsTable extends Migration
             $table->foreign('program_id')->references('id')->on('programs')->onDelete('SET NULL');
             $table->foreign('subprogram_id')->references('id')->on('subprograms')->onDelete('SET NULL');
             $table->foreign('value_chain_segment_id')->references('id')->on('value_chain_segments')->onDelete('SET NULL');
-            $table->foreign('value_chain_segment_id')->references('id')->on('value_chain_segments')->onDelete('SET NULL');
             $table->foreign('unit_id')->references('id')->on('units')->onDelete('SET NULL');
             $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('SET NULL');
         });
