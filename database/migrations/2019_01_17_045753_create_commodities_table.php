@@ -14,7 +14,7 @@ class CreateCommoditiesTable extends Migration
     public function up()
     {
         Schema::create('commodities', function (Blueprint $table) {
-            $table->unsignedInteger('id');
+            $table->unsignedInteger('id')->unique();
             $table->string('name')->nullable();
         });
     }

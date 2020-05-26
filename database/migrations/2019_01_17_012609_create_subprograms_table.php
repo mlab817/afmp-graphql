@@ -14,7 +14,7 @@ class CreateSubprogramsTable extends Migration
     public function up()
     {
         Schema::create('subprograms', function (Blueprint $table) {
-            $table->unsignedInteger('id');
+            $table->unsignedInteger('id')->unique();
             $table->string('name')->nullable();
             $table->timestamps();
         });

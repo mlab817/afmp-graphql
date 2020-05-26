@@ -42,7 +42,7 @@ type Query {
 		operating_unit(id: ID! @eq): OperatingUnit @find
 
 		filteredInterventions(
-			where: _ @whereConditions(columns: ["operating_unit_id","region_id","province_id","commodity_group_id","commodity_id"
+			where: _ @whereConditions(columns: ["operating_unit_id","region_id","province_id","commodity_group_id", "commodity_id"
 			])
 		): [Intervention] @paginate
 

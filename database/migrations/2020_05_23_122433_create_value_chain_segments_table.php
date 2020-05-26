@@ -14,7 +14,7 @@ class CreateValueChainSegmentsTable extends Migration
     public function up()
     {
         Schema::create('value_chain_segments', function (Blueprint $table) {
-            $table->unsignedInteger('id');
+            $table->unsignedInteger('id')->unique();
             $table->string('name')->nullable();
             $table->timestamps();
         });
