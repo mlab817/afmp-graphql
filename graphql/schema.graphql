@@ -20,13 +20,13 @@ type Query {
 		provinces: [Province] @all
 		province(id: ID! @eq): Province @find
 
-		interventions: [Intervention] @paginate(type:"paginator")
+		interventions: [Intervention] @paginate(type:"paginator", maxCount: 25)
 		intervention(id: ID! @eq): Intervention @find
 
-		commodities: [Commodity] @paginate(type:"paginator")
+		commodities: [Commodity] @all
 		commodity(id: ID! @eq): Commodity @find
 
-		commodity_groups: [CommodityGroup] @paginate(type:"paginator")
+		commodity_groups: [CommodityGroup] @all
 		commodity_group(id: ID! @eq): CommodityGroup @find
 
 		value_chain_segments: [ValueChainSegment] @paginate(type:"paginator")
@@ -40,6 +40,11 @@ type Query {
 
 		operating_units: [OperatingUnit] @paginate(type:"paginator")
 		operating_unit(id: ID! @eq): OperatingUnit @find
+
+		filteredInterventions(
+			where: _ @whereConditions(columns: ["operating_unit_id","region_id","province_id","commodity_group_id","commodity_id"
+			])
+		): [Intervention] @paginate
 
 }
 
@@ -139,6 +144,7 @@ type Intervention {
 	province: Province @belongsTo
 	commodity_group: CommodityGroup @belongsTo
 	commodity: Commodity @belongsTo
+	value_chain_segment: ValueChainSegment @belongsTo
 	program: Program @belongsTo
 	subprogram: Subprogram @belongsTo
 	intervention_type: String
@@ -160,6 +166,7 @@ type Intervention {
 	investment_5: Float
 	investment_6: Float
 	investment_total: Float
+	municipalities_1: Int
 	municipalities_2: Int
 	municipalities_3: Int
 	municipalities_4: Int

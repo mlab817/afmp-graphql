@@ -174,6 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // add @whereConditions directive to lighthouse-php
+        \Nuwave\Lighthouse\WhereConditions\WhereConditionsServiceProvider::class,
 
     ],
 
