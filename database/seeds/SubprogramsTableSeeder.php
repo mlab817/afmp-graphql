@@ -9,7 +9,7 @@ class SubprogramsTableSeeder extends CsvSeeder
     {
         $this->table = 'subprograms';
         $this->csv_delimiter = ',';
-        $this->filename = base_path().'\database\seeds\csvs\subprogram.csv';
+        $this->filename = base_path().'/database/seeds/csvs/subprogram.csv';
     }
 
     /**

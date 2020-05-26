@@ -9,7 +9,7 @@ class UnitsTableSeeder extends CsvSeeder
     {
         $this->table = 'units';
         $this->csv_delimiter = ',';
-        $this->filename = base_path().'\database\seeds\csvs\unit.csv';
+        $this->filename = base_path().'/database/seeds/csvs/unit.csv';
     }
 
     /**

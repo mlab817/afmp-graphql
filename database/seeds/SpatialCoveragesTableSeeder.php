@@ -9,7 +9,7 @@ class SpatialCoveragesTableSeeder extends CsvSeeder
     {
         $this->table = 'spatial_coverages';
         $this->csv_delimiter = ',';
-        $this->filename = base_path().'\database\seeds\csvs\spatial_coverage.csv';
+        $this->filename = base_path().'/database/seeds/csvs/spatial_coverage.csv';
     }
 
     /**

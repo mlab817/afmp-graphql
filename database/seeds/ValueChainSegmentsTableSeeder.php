@@ -9,7 +9,7 @@ class ValueChainSegmentsTableSeeder extends CsvSeeder
     {
         $this->table = 'value_chain_segments';
         $this->csv_delimiter = ',';
-        $this->filename = base_path().'\database\seeds\csvs\value_chain_segment.csv';
+        $this->filename = base_path().'/database/seeds/csvs/value_chain_segment.csv';
     }
 
     /**

@@ -9,7 +9,7 @@ class OperatingUnitsTableSeeder extends CsvSeeder
     {
         $this->table = 'operating_units';
         $this->csv_delimiter = ',';
-        $this->filename = base_path().'\database\seeds\csvs\operating_unit.csv';
+        $this->filename = base_path().'/database/seeds/csvs/operating_unit.csv';
     }
 
     /**

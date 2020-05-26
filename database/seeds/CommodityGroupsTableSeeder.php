@@ -9,7 +9,7 @@ class CommodityGroupsTableSeeder extends CsvSeeder
     {
         $this->table = 'commodity_groups';
         $this->csv_delimiter = ',';
-        $this->filename = base_path().'\database\seeds\csvs\commodity_group.csv';
+        $this->filename = base_path().'/database/seeds/csvs/commodity_group.csv';
     }
 
     /**
