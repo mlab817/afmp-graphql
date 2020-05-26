@@ -14,7 +14,7 @@ class CreateInterventionsTable extends Migration
     public function up()
     {
         Schema::create('interventions', function (Blueprint $table) {
-            $table->unsignedInteger('id');
+            $table->unsignedInteger('id')->unique();
             $table->unsignedInteger('operating_unit_id')->nullable();
             $table->unsignedInteger('spatial_coverage_id')->nullable();
             $table->unsignedInteger('region_id')->nullable();
