@@ -21,11 +21,11 @@ class ProgramsTableSeeder extends CsvSeeder
     {
         //
         // Recommended when importing larger CSVs
-				DB::disableQueryLog();
+		DB::disableQueryLog();
 
-				// Uncomment the below to wipe the table clean before populating
-				DB::table($this->table)->truncate();
+		// Uncomment the below to wipe the table clean before populating
+		// DB::table($this->table)->truncate();
 
-				parent::run();
+		parent::run();
     }
 }
